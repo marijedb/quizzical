@@ -26,17 +26,13 @@ function Quiz(props) {
     
     return(
         <div className="container">
-            <div>
+            <div className="quiz--content">
                 {elements}
+                <p>You answered 3/5 questions correctly!</p>
+                <div className="quiz--button btn" onClick={props.handleClick}>Play Again</div>
             </div>
         </div>
     )
 }
 
 export default Quiz
-
-/* <h3>{props.allQuestions[0].question}</h3> */
-// props.question[0].question
-// props.question[0].correct_answer
-// props.questions[0].incorrect_answers[0, 1, 2]
-// type: Boolean, multiple

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Start from './components/Start';
 import Quiz from './components/Quiz';
-import {decode} from 'html-entities';
+
 
 function App() {
   const [quizStart, setQuizStart] = useState(false)
@@ -21,7 +21,7 @@ function App() {
         setQuestions(() => {
           const test = data.results.map((singleQuestion => {
             return {
-              question: decode(singleQuestion.question),
+              question: singleQuestion.question,
               correctAnswer: singleQuestion.correct_answer,
               incorrectAnswers: [singleQuestion.incorrect_answers],
               allAnswers: [singleQuestion.correct_answer, singleQuestion.incorrect_answers].flat()

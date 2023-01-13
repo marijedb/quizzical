@@ -1,21 +1,24 @@
 import React from "react";
+import {decode} from 'html-entities';
+import { nanoid } from 'nanoid'
 
 function Quiz(props) {
+
     function shuffleArray(arr) {
         arr.sort(() => Math.random() - 0.5);
     }
 
     const elements = props.allQuestions.map(question => {
-        const answers = question.allAnswers.map(answer => {
-            return <p>{answer}</p>
+        const answers = question.allAnswers.map((answer, index) => {
+            return <p key={index} className="answer">{decode(answer)}</p>
         })
         shuffleArray(answers)
 
-        return <div className="question-container">
-                    <div>
-                        {question.question}
+        return <div key={nanoid()} className="question-container">
+                    <div key={nanoid()} className="question">
+                        {decode(question.question)}
                     </div>
-                    <div className="answers">
+                    <div key={nanoid()} className="answers">
                         {answers}
                     </div>
                 </div>

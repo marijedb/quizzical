@@ -74,3 +74,13 @@ h1 {
   gap: 2em;
   flex-wrap: wrap;
 }
+
+.answer {
+  border: 1px solid #4D5B9E;
+  border-radius: 15px;
+  padding: .5em 1em;
+}
+
+.question {
+  font-weight: bold;
+}

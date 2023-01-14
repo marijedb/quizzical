@@ -11,7 +11,6 @@ function shuffleArray(arr) {
 function App() {
   const [quizStart, setQuizStart] = useState(false)
   const [questions, setQuestions] = useState(null)
-  const [answerID, setAnswerID] = useState("")
     
   async function startQuiz(){
       setQuizStart(prevValue => !prevValue)
@@ -56,6 +55,15 @@ function selectAnswer(event){
     } : 
     question
   }))
+
+  const temp = questions.map(question => {
+    for(let i = 0; i < question.allAnswers.length; i++){
+      if(question.allAnswers[i] === clickedAnswer){
+        return question.allAnswers[i]
+      }
+    }
+  })
+  console.log(temp)
 }
 
 function checkAnswers(){

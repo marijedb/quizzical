@@ -4,17 +4,12 @@ import { nanoid } from 'nanoid'
 
 function Quiz(props) {
 
-    function shuffleArray(arr) {
-        arr.sort(() => Math.random() - 0.5);
-    }
-
     const elements = props.allQuestions.map(question => {
         const answers = question.allAnswers.map((answer, index) => {
-            return <p key={index} className="answer">{decode(answer)}</p>
+            return <p key={index} className="answer" value={answer} onClick={props.selectAnswer}>{decode(answer)}</p>
         })
-        shuffleArray(answers)
 
-        return <div key={nanoid()} className="question-container">
+        return <div key={question.id} id={question.id} className="question-container">
                     <div key={nanoid()} className="question">
                         {decode(question.question)}
                     </div>
@@ -23,15 +18,20 @@ function Quiz(props) {
                     </div>
                 </div>
     })
+
+    const quizStarted = (<div className="quiz-result-container">
+                            <div className="btn" onClick={props.handleClick}>Check Answers</div>
+                        </div>)
+    const quizEnded = (<div className="quiz-result-container">
+                            <p className="quiz--results">You answered 3/5 questions correctly!</p>
+                            <div className="btn" onClick={props.handleClick}>Play Again</div>
+                        </div>)
     
     return(
         <div className="container">
             <div className="quiz--content">
                 {elements}
-                <div className="quiz-result-container">
-                    <p className="quiz--results">You answered 3/5 questions correctly!</p>
-                    <div className="btn" onClick={props.handleClick}>Play Again</div>
-                </div>
+                {props.quizStart ? quizStarted : quizEnded}
             </div>
         </div>
     )

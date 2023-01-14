@@ -11,7 +11,8 @@ function shuffleArray(arr) {
 function App() {
   const [quizStart, setQuizStart] = useState(false)
   const [questions, setQuestions] = useState(null)
-  
+  const [answerID, setAnswerID] = useState("")
+    
   async function startQuiz(){
       setQuizStart(prevValue => !prevValue)
   }
@@ -34,7 +35,7 @@ function App() {
               incorrectAnswers: [singleQuestion.incorrect_answers],
               allAnswers: shuffledAnswers[index],
               chosenAnswer: "",
-              id: nanoid()
+              id: nanoid(),
             }
           })
           return results
@@ -55,7 +56,6 @@ function selectAnswer(event){
     } : 
     question
   }))
-  console.log(questions)
 }
 
 function checkAnswers(){
@@ -67,11 +67,17 @@ function checkAnswers(){
     }
   })
   console.log(allAnswered)
+  if(allAnswered.includes(false)){
+    console.log("nope")
+  } else {
+    console.log("yup")
+  }
 }
 
 useEffect(() => {
   getQuestions()
 },[])
+
 
   return (
     <div>

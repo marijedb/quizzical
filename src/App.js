@@ -10,7 +10,7 @@ function App() {
     const [questions, setQuestions] = useState(null)
   
   async function startQuiz(){
-    setQuizStart(prevValue => !prevValue)
+      setQuizStart(prevValue => !prevValue)
   }
 
   const getQuestions = async () => {
@@ -41,7 +41,7 @@ useEffect(() => {
 
   return (
     <div>
-      {quizStart ? <Quiz allQuestions={questions} /> :  <Start handleClick={() => startQuiz()} />}
+      {quizStart ? <Quiz allQuestions={questions} /> :  <Start questionsReady={questions} handleClick={() => startQuiz()} />}
     </div>
   );
 }

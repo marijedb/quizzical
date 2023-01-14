@@ -28,8 +28,10 @@ function Quiz(props) {
         <div className="container">
             <div className="quiz--content">
                 {elements}
-                <p>You answered 3/5 questions correctly!</p>
-                <div className="quiz--button btn" onClick={props.handleClick}>Play Again</div>
+                <div className="quiz-result-container">
+                    <p className="quiz--results">You answered 3/5 questions correctly!</p>
+                    <div className="btn" onClick={props.handleClick}>Play Again</div>
+                </div>
             </div>
         </div>
     )

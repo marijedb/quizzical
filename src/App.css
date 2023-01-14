@@ -71,10 +71,6 @@ body {
   margin-top: 1.5em;
 }
 
-.quiz--button {
-  margin: 0 auto 1.5em;
-}
-
 .question-container {
   width: 80%;
   flex-wrap: wrap;
@@ -103,4 +99,22 @@ body {
 
 .question {
   font-weight: bold;
+}
+
+.quiz-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.quiz--results {
+  margin: 0 .5em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.start--loading {
+  font-style: italic;
 }

@@ -78,6 +78,14 @@ function checkAnswers(){
   } 
 }
 
+function playAgain(){
+  setQuizStart(false)
+  setQuestions(null)
+  setCheckedAnswers(false)
+  getQuestions()
+
+}
+
 useEffect(() => {
   getQuestions()
 },[])
@@ -85,7 +93,7 @@ useEffect(() => {
 
   return (
     <div>
-      {quizStart ? <Quiz quizStart={quizStart} allQuestions={questions} checkedAnswers={checkedAnswers} selectAnswer={(e) => selectAnswer(e)} checkAnswers={() => checkAnswers() } /> :  
+      {quizStart ? <Quiz quizStart={quizStart} allQuestions={questions} checkedAnswers={checkedAnswers} selectAnswer={(e) => selectAnswer(e)} checkAnswers={() => checkAnswers()} playAgain={playAgain} /> :  
       <Start questionsReady={questions} handleClick={() => startQuiz()} />}
     </div>
   );

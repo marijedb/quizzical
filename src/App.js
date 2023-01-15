@@ -20,7 +20,7 @@ function App() {
 
   const getQuestions = async () => {
     try {
-        const response = await fetch(`https://opentdb.com/api.php?amount=5&difficulty=easy`)
+        const response = await fetch(`https://opentdb.com/api.php?amount=5&difficulty=easy&category=9`)
         const data = await response.json()
         let shuffledAnswers = []
         for(let i = 0; i < data.results.length; i++){

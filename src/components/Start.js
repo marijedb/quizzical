@@ -13,4 +13,3 @@ function Start(props){
 }
 
 export default Start
-// <div className="start--button btn" onClick={props.handleClick}>Start Quiz</div>

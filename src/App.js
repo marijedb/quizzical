@@ -85,7 +85,7 @@ useEffect(() => {
 
   return (
     <div>
-      {quizStart ? <Quiz quizStart={quizStart} allQuestions={questions} checkedAnswers={checkedAnswers} selectAnswer={(e) => selectAnswer(e)} handleClick={() => checkAnswers() } /> :  
+      {quizStart ? <Quiz quizStart={quizStart} allQuestions={questions} checkedAnswers={checkedAnswers} selectAnswer={(e) => selectAnswer(e)} checkAnswers={() => checkAnswers() } /> :  
       <Start questionsReady={questions} handleClick={() => startQuiz()} />}
     </div>
   );

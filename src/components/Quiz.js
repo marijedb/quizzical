@@ -31,18 +31,18 @@ function Quiz(props) {
     })
 
     const quizStarted = (<div className="quiz-result-container">
-                            <div className="btn" onClick={props.handleClick}>Check Answers</div>
+                            <div className="btn" onClick={props.checkAnswers}>Check Answers</div>
                         </div>)
     const quizEnded = (<div className="quiz-result-container">
-                            <p className="quiz--results">You answered {allCorrect.length} questions correctly!</p>
-                            <div className="btn" onClick={props.handleClick}>Play Again</div>
+                            <p className="quiz--results">You answered {allCorrect.length}/5 questions correctly!</p>
+                            <div className="btn" onClick={props.playAgain}>Play Again</div>
                         </div>)
     
     return(
         <div className="container">
             <div key={nanoid()} className="quiz--content">
                 {elements}
-                {props.quizStart ? quizStarted : quizEnded}
+                {props.quizStart && !props.checkedAnswers ? quizStarted : quizEnded}
             </div>
         </div>
     )

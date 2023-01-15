@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&display=swap');
 
+/* GENERAL STYLES */
 * {
   box-sizing: border-box;
 }
@@ -12,11 +13,6 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
-}
-
-.start--title {
-  margin: 0;
-  font-family: 'Karla', sans-serif;
 }
 
 .container {
@@ -35,25 +31,6 @@ body {
   border-radius: 15px;
 }
 
-.quiz--content {
-  position: relative;
-  width: 90%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-.start--content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  padding: 1em;
-  text-align: center;
-  position: relative;
-}
-
 .btn {
   display: flex;
   align-items: center;
@@ -69,38 +46,46 @@ body {
   width: 200px;
 }
 
+
+
+
+
+
+
+
+/* START COMPONENT */
+
+.start--title {
+  margin: 0;
+  font-family: 'Karla', sans-serif;
+}
+
+.start--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  text-align: center;
+}
+
+.start--loading {
+  font-style: italic;
+}
+
 .start--button {
   margin-top: 1.5em;
 }
 
-.question-container {
-  width: 80%;
-  flex-wrap: wrap;
-  margin: auto;
-}
 
-.answers {
-  display: flex;
-  flex-wrap: wrap;
-  margin: .8em 0 1.8em;
-}
 
-.answer {
-  border: 1px solid #4D5B9E;
-  border-radius: 15px;
-  padding: .5em 1em;
-  margin: 0 1em 1em 0;
-  margin-right: 1em;
-  cursor: pointer;
-}
 
-.answer:hover,
-.answer:target {
-  background-color: #D6DBF5;
-}
+/* QUIZ COMPONENT */
 
-.question {
-  font-weight: bold;
+.quiz--content {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .quiz-result-container {
@@ -117,6 +102,45 @@ body {
   font-weight: bold;
 }
 
-.start--loading {
-  font-style: italic;
+
+
+
+
+/* QUESTION COMPONENT */
+
+.question-container {
+  width: 80%;
+  flex-wrap: wrap;
+  margin: auto;
 }
+
+.question--divider {
+  border: none;
+  border-top: 1px solid #DBDEF0;
+  margin: 1.8em 0;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.answer {
+  border: 1px solid #4D5B9E;
+  border-radius: 15px;
+  padding: .5em 1em;
+  margin-top: .5em;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.answer:hover,
+.answer:target {
+  background-color: #D6DBF5;
+}
+

@@ -23,15 +23,6 @@ function Question(props){
         }
     }
 
-    //if havent checked answers yet:
-    // if hasChosen && same as answer in map -> activeStyle
-    //         if else the one you have chosen is NOT the answer in map --> opacity
-
-    // if checked answers:
-    // if correctAnswered()
-
-
-
     function setStyling(answer, hasChosen, correctAnswered, correctAnswer, checkedAnswers){
         if(checkedAnswers){
             if(correctAnswered){
@@ -77,6 +68,7 @@ function Question(props){
                 <div key={nanoid()} className="answers">
                     {answerElements}
                 </div>
+                <hr className="question--divider" />
             </div>
         </div>
     )

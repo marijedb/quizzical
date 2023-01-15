@@ -38,7 +38,6 @@ body {
 .quiz--content {
   position: relative;
   width: 90%;
-  border: 1px solid red;
   height: 100%;
   margin: 0 auto;
 }

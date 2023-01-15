@@ -11,6 +11,8 @@ function shuffleArray(arr) {
 function App() {
   const [quizStart, setQuizStart] = useState(false)
   const [questions, setQuestions] = useState(null)
+  const [checkedAnswers, setCheckedAnswers] = useState(false)
+
     
   async function startQuiz(){
       setQuizStart(prevValue => !prevValue)
@@ -34,6 +36,7 @@ function App() {
               incorrectAnswers: [singleQuestion.incorrect_answers],
               allAnswers: shuffledAnswers[index],
               chosenAnswer: "",
+              correctlyAnswered: false,
               id: nanoid(),
             }
           })
@@ -55,31 +58,24 @@ function selectAnswer(event){
     } : 
     question
   }))
-
-  const temp = questions.map(question => {
-    for(let i = 0; i < question.allAnswers.length; i++){
-      if(question.allAnswers[i] === clickedAnswer){
-        return question.allAnswers[i]
-      }
-    }
-  })
-  console.log(temp)
 }
 
 function checkAnswers(){
   const allAnswered = questions.map(question => {
-    if(question.chosenAnswer) {
-      return true
-    } else {
-      return false
-    }
+    return question.chosenAnswer ? true : false
   })
-  console.log(allAnswered)
-  if(allAnswered.includes(false)){
-    console.log("nope")
-  } else {
-    console.log("yup")
-  }
+  if(!allAnswered.includes(false)){
+    setCheckedAnswers(prevValue => !prevValue)
+    setQuestions(prevQuestions => prevQuestions.map(question => {
+      return question.chosenAnswer === question.correctAnswer ? {
+        ...question,
+        correctlyAnswered: true
+      } : {
+        ...question,
+        correctlyAnswered: false
+      }
+    }))
+  } 
 }
 
 useEffect(() => {
@@ -89,7 +85,7 @@ useEffect(() => {
 
   return (
     <div>
-      {quizStart ? <Quiz quizStart={quizStart} allQuestions={questions} selectAnswer={(e) => selectAnswer(e)} handleClick={() => checkAnswers() } /> :  
+      {quizStart ? <Quiz quizStart={quizStart} allQuestions={questions} checkedAnswers={checkedAnswers} selectAnswer={(e) => selectAnswer(e)} handleClick={() => checkAnswers() } /> :  
       <Start questionsReady={questions} handleClick={() => startQuiz()} />}
     </div>
   );
